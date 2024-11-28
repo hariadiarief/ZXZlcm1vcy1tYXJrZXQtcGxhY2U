@@ -1,7 +1,9 @@
 'use client'
 
 import { API } from '@/app/services/api'
+import { IProducts } from '@/components/product-items'
 import { useQuery } from '@tanstack/react-query'
+import Image from 'next/image'
 import 'photoswipe/dist/photoswipe.css'
 import { Gallery, Item } from 'react-photoswipe-gallery'
 
@@ -18,7 +20,7 @@ export default function ProductDetail({ params }: IProductDetail) {
   })
 
   const selectedProduct = product
-    ? product.find((item: any) => item.id === Number(productId))
+    ? product.find((item: IProducts) => item.id === Number(productId))
     : null
 
   return (
@@ -34,7 +36,18 @@ export default function ProductDetail({ params }: IProductDetail) {
                 height='768'
               >
                 {({ ref, open }) => (
-                  <img ref={ref} onClick={open} src={selectedProduct.img_url} />
+                  <Image
+                    ref={ref}
+                    onClick={open}
+                    src={
+                      selectedProduct.img_url || '/images/unavailable-image.jpg'
+                    }
+                    width={300}
+                    height={100}
+                    className='w-full object-contain'
+                    alt='product image'
+                    sizes='(max-width: 768px) 100vw, 33vw'
+                  />
                 )}
               </Item>
             </Gallery>
@@ -54,12 +67,13 @@ export default function ProductDetail({ params }: IProductDetail) {
             </div>
             <hr className='my-4 w-full' />
             <div>
+              {`
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever since the 1500s, when an unknown printer took a galley of
               type and scrambled it to make a type specimen book. It has
               survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged.
+              electronic typesetting, remaining essentially unchanged.`}
             </div>
           </div>
         </div>
