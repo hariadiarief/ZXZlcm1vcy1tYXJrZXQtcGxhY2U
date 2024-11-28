@@ -30,7 +30,7 @@ export default function ProductItems({ limit = undefined }: IProsProductItems) {
     <>
       <div
         className={
-          'grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-8 lg:grid-cols-4'
+          'grid w-full grid-cols-2 gap-4 md:grid-cols-3 md:gap-8 lg:grid-cols-4 xl:grid-cols-5'
         }
       >
         {isPending ? (
@@ -58,17 +58,17 @@ export default function ProductItems({ limit = undefined }: IProsProductItems) {
                 sizes='(max-width: 768px) 100vw, 33vw'
               />
               <div className='px-2 pb-2'>
-                <h5 className='mt-1 tracking-tight text-gray-900 dark:text-white'>
+                <h3 className='mt-1 tracking-tight text-gray-900 dark:text-white'>
                   {product.name}
-                </h5>
-                <h5 className='mt-1 text-xl font-bold tracking-tight text-gray-900 dark:text-white'>
+                </h3>
+                <div className='mt-1 text-xl font-bold tracking-tight text-gray-900 dark:text-white'>
                   {new Intl.NumberFormat('id-ID', {
                     style: 'currency',
                     currency: 'IDR',
                     minimumFractionDigits: 0,
                     maximumFractionDigits: 0
                   }).format(Number(product.price))}
-                </h5>
+                </div>
               </div>
             </Link>
           ))
@@ -81,7 +81,7 @@ export default function ProductItems({ limit = undefined }: IProsProductItems) {
 
       {products && products.length && limit && limit > 0 ? (
         <Link
-          href='/products'
+          href='/product'
           className={cn('mt-8', buttonVariants({ variant: 'ghost' }))}
         >
           See all products

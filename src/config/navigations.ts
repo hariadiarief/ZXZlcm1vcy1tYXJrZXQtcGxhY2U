@@ -2,7 +2,7 @@ export const navigationsConfig = {
   mainNav: [
     {
       title: 'Products',
-      href: '/products'
+      href: '/product'
     },
     {
       title: 'Contact Me',

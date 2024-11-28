@@ -1,28 +1,5 @@
-import { Skeleton } from '@/components/ui/skeleton'
-import dynamic from 'next/dynamic'
+import ProductItems from '@/components/product-items'
 import Link from 'next/link'
-
-const DynamicProductItems = dynamic(
-  () => import('@/components/product-items'),
-  {
-    loading: () => (
-      <div
-        className={
-          'xl:grid-cols- grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-8 lg:grid-cols-4'
-        }
-      >
-        {Array(6)
-          .fill(undefined)
-          .map((_, index: number) => (
-            <div key={index}>
-              <Skeleton className='mb-2 h-[100px] w-full' />
-              <Skeleton className='h-4 w-[50%]' />
-            </div>
-          ))}
-      </div>
-    )
-  }
-)
 
 export default function Home() {
   return (
@@ -56,7 +33,8 @@ export default function Home() {
         <div className='mb-12 mt-[100px] text-2xl font-bold'>
           Popular Products
         </div>
-        <DynamicProductItems limit={6} />
+
+        <ProductItems limit={10} />
       </div>
     </div>
   )
