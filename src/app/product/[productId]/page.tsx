@@ -1,11 +1,10 @@
 'use client'
 
 import { API } from '@/app/services/api'
+import ThumbnailsInOpenedPhotoswipe from '@/components/gallery'
 import { IProducts } from '@/components/product-items'
 import { useQuery } from '@tanstack/react-query'
-import Image from 'next/image'
 import 'photoswipe/dist/photoswipe.css'
-import { Gallery, Item } from 'react-photoswipe-gallery'
 
 export interface IProductDetail {
   params: { productId: string }
@@ -27,30 +26,8 @@ export default function ProductDetail({ params }: IProductDetail) {
     <div className='content-container container'>
       {!selectedProduct || isPending ? null : (
         <div className='flex flex-col md:flex-row'>
-          <div className='mr-4 w-full cursor-zoom-in rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-900 md:w-[25vw]'>
-            <Gallery>
-              <Item
-                original={selectedProduct.img_url}
-                thumbnail={selectedProduct.img_url}
-                width='1024'
-                height='768'
-              >
-                {({ ref, open }) => (
-                  <Image
-                    ref={ref}
-                    onClick={open}
-                    src={
-                      selectedProduct.img_url || '/images/unavailable-image.jpg'
-                    }
-                    width={300}
-                    height={100}
-                    className='w-full object-contain'
-                    alt='product image'
-                    sizes='(max-width: 768px) 100vw, 33vw'
-                  />
-                )}
-              </Item>
-            </Gallery>
+          <div className='mb-8 mr-0 md:mb-0 md:mr-8'>
+            <ThumbnailsInOpenedPhotoswipe img_url={selectedProduct.img_url} />
           </div>
 
           <div className='mt-4 w-full md:mt-0'>
