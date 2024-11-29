@@ -29,6 +29,7 @@ export default function ProductItems({ limit = undefined }: IProsProductItems) {
   return (
     <>
       <div
+        data-aos='fade-up'
         className={
           'grid w-full grid-cols-2 gap-4 md:grid-cols-3 md:gap-8 lg:grid-cols-4 xl:grid-cols-5'
         }

@@ -5,12 +5,15 @@ export default function Home() {
   return (
     <div className='content-container container'>
       <div className='mx-auto flex max-w-screen-md flex-col items-center gap-4 text-center'>
-        <h1 className='font-heading text-3xl font-bold sm:text-5xl md:text-6xl lg:text-3xl'>
+        <h1
+          data-aos='fade-up'
+          className='font-heading text-3xl font-bold sm:text-5xl md:text-6xl lg:text-3xl'
+        >
           Lorem ipsum dolor sit amet, <b>consectetur adipiscing elit</b>.
           Vestibulum aliquet, velit sit amet congue vulputate
         </h1>
 
-        <p className='max-w-[42rem]'>
+        <p className='max-w-[42rem]' data-aos='zoom-in'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
           aliquet, velit sit amet congue vulputate, nisl nisl pulvinar purus,
           sed commodo diam elit a mauris. Sed aliquam ac dui eget consequat.
@@ -30,7 +33,7 @@ export default function Home() {
       </div>
 
       <div className='flex flex-col items-center'>
-        <div className='mb-12 mt-[100px] text-2xl font-bold'>
+        <div className='mb-12 mt-[100px] text-2xl font-bold' data-aos='fade-up'>
           Popular Products
         </div>
 

@@ -2,7 +2,10 @@ import { Icons } from '@/components/icons'
 
 export default function contact() {
   return (
-    <div className='container flex max-w-screen-md grow flex-col items-center justify-center'>
+    <div
+      data-aos='fade-up'
+      className='container flex max-w-screen-md grow flex-col items-center justify-center'
+    >
       <h3 className='mb-8 text-2xl font-bold'>Contact Me</h3>
 
       <div className='flex flex-wrap justify-center gap-8'>

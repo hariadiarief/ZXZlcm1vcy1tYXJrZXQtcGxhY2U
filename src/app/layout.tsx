@@ -1,3 +1,4 @@
+import { AOSInit } from '@/components/aos'
 import PageLoader from '@/components/page-loader'
 import QueryProvider from '@/components/query-provider'
 import SiteFooter from '@/components/site-footer'
@@ -36,6 +37,8 @@ export default function RootLayout({
         <ThemeProvider attribute='class' defaultTheme='dark'>
           <QueryProvider>
             <PageLoader />
+            <AOSInit />
+
             <div className='mx-auto flex min-h-screen flex-col'>
               <SiteHeader />
               <main className='flex grow flex-col'>{children}</main>
